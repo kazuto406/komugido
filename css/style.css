@@ -1,0 +1,270 @@
+/* ===== 全体 ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Yu Gothic", "游ゴシック", sans-serif;
+  color: #333333;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+h2 {
+  border-left: 6px solid #8B5A2B;
+  padding-left: 12px;
+}
+
+/* ===== ヘッダー（Flexbox） ===== */
+.site-header {
+  background-color: #8B5A2B;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.nav-list a:hover,
+.nav-list a.current {
+  border-bottom-color: #ffffff;
+}
+
+/* ===== メイン画像 ===== */
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  text-align: center;
+  color: #ffffff;
+  animation: fadein 1.5s;
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 商品カード（Grid） ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  border: 2px solid #eeeeee;
+  border-radius: 8px;
+  padding: 16px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin: 12px 0 4px;
+}
+
+.price {
+  color: #8B5A2B;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* ===== お知らせ ===== */
+.news {
+  list-style: none;
+  padding: 0;
+}
+
+.news li {
+  border-bottom: 1px solid #dddddd;
+  padding: 12px 0;
+}
+
+.news time {
+  margin-right: 16px;
+  color: #777777;
+}
+
+/* ===== 会社概要 ===== */
+.about {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.about img {
+  width: 45%;
+}
+
+.info-table {
+  flex: 1;
+  border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+  border: 1px solid #dddddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.info-table th {
+  background-color: #f5efe8;
+  width: 100px;
+}
+
+/* ===== お問い合わせフォーム ===== */
+.contact-form {
+  max-width: 600px;
+}
+
+.field {
+  margin-bottom: 20px;
+  border: none;
+  padding: 0;
+}
+
+.field > label,
+.field legend {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+/* 入力したあとで、形式が正しくない欄を赤枠にする */
+input:user-invalid,
+textarea:user-invalid {
+  border-color: #c92a2a;
+}
+
+.btn {
+  background-color: #8B5A2B;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* ===== フッター ===== */
+.site-footer {
+  background-color: #333333;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ===== スマホ向け（幅 768px 以下） ===== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    gap: 8px;
+  }
+
+  .hero img {
+    height: 240px;
+  }
+
+  .hero-text h1 {
+    font-size: 22px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about img {
+    width: 100%;
+  }
+}
